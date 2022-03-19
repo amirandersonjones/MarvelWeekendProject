@@ -1,1 +1,23 @@
-<h1>Hello Marvel Fans</h1>
+{% extends 'components/layout.html' %}
+{% block css %}
+{% endblock css %}
+
+
+
+{% block content %}
+
+<h1>{{ headline }}</h1>
+
+<div class="card">
+    <div class="card-header font-weight-bold">
+        FAVORITES
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for name in favorites %}
+        <li class="list-group-item font-weight-bold">{{ name }}<span class='float-right'>{{ favorites[name] }}</span></li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock content %}
