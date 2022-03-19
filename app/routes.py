@@ -16,4 +16,4 @@ def home():
 def aboutmarvel():
     headline= 'THIS IS ABOUT THE HISTORY OF MARVEL'
     x= choice(['WELCOME FANS', 'THANKS FOR VISITING', 'WE APPRECIATE YOUR LOYAL SUPPORT'])
-    return render_template('aboutmarvel.html', headline=headline, greetings=x)
+    return render_template('aboutmarvel.html',headline=headline, greetings=x )
