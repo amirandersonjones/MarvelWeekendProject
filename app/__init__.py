@@ -15,3 +15,19 @@ app.config.from_object(Config)
 # import the routes file here (must be after the definition and config of app)
 from . import routes # from the app folder (that we're currently in) import the routes file
 #end intial setup stuff
+
+#imports for database intial setup stuff:
+from .models import db
+from flask_migrate import Migrate
+
+#set up our ORM and Migrate connections
+db.init_app(app)
+migrate = Migrate(app, db)
+from . import models # from the app folder import the models file. this MUST come after the setup steps
+
+# import blueprints
+from .api.routes import api
+
+#create a link of communication between blueprints and app
+#aka register the blueprints
+app.register_blueprint(api)

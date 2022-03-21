@@ -12,4 +12,7 @@ class Config:
     FLASK_APP = os.environ.get('FLASK_APP') # go get the FLASK_APP value from .env
     FLASK_ENV = os.environ.get('FLASK_ENV')
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')#NEED TO PROVIDE THE VALUE FOR THIS IN .ENV
+    SQLALCHEMY_TRACK_MODIFICATIONS = False    #OPTIONAL BUT GOOD FOR TESTING#.   
 #end initial config stuff
+

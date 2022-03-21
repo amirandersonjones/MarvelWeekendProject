@@ -1,0 +1,46 @@
+{% extends 'components/layout.html' %}
+
+{% block css %}
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <form class="form-inline" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.charactername(class="mr-3 form-control", placeholder="Character") }}
+            </div>
+            {{ form.submit(class="btn btn-info") }}
+        </form>
+        <small id="characterHelp" class="form-text text-muted">Submit the name of Marvel character to get their
+            information from the MarvelCharacterAPI.</small>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-8">
+        {% if character is string %}
+            <h3>There are no characters with the last name {{ character }}.</h3>
+        {% elif character %}
+        <div class="card">
+            <div class="card-header">
+                Character Information:
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID:<span class='float-right'>{{ character['permanentNumber'] }} {{ character['code'] }}</span></li>
+                <li class="list-group-item">Name:<span class='float-right'>{{ character['givenName'] }}</span></li>
+                <li class="list-group-item">Last Name:<span class='float-right'>{{ character['familyName'] }}</span></li>
+                <li class="list-group-item">DOB:<span class='float-right'>{{ character['dateOfBirth'] }}</span></li>
+                <li class="list-group-item">Nationality:<span class='float-right'>{{ character['nationality'] }}</span></li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
